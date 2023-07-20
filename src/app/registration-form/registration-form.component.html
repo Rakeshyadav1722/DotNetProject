@@ -1,0 +1,132 @@
+<div class="sm-jumbotron2 centre-align">
+  <div class="row">
+    <div class="col-s8-offset-2">
+      <div class="card">
+        <div class="sm-jumbotron centre-align">
+          <h2>User Registration</h2>
+        </div>
+        <form
+          class="col s12 white sm-jumbotron2 centre-align"
+          #RegistrationForm="ngForm"
+          (ngSubmit)="RegisterUser(RegistrationForm.value)"
+          autocomplete="off"
+        >
+          <div class="row">
+            <div class="input-field col s6">
+              <input
+                type="text"
+                name="FirstName"
+                required
+                #FirstName="ngModel"
+                ngModel
+              />
+              <label class="active">FirstName</label>
+            </div>
+            <div class="input-field col s6">
+              <input
+                type="text"
+                name="LastName"
+                required
+                #LastName="ngModel"
+                ngModel
+              />
+              <label class="active">LastName</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s6">
+              <input name="UserName" required #name="ngModel" ngModel />
+              <span *ngIf="name.invalid && name.touched" style="color: red"
+                >Please Enter a valid Name</span
+              >
+              <label class="active">User Name</label>
+            </div>
+            <div class="input-field col s6">
+              <input
+                type="text"
+                name="Phone"
+                required
+                #PhoneNumber="ngModel"
+                pattern="^((\\+91-?)|0)?[0-9]{10}$"
+                minlength="10"
+                ngModel
+              />
+              <span
+                *ngIf="PhoneNumber.invalid && PhoneNumber.touched"
+                style="color: red"
+                >Please Enter a valid Phone Number</span
+              >
+              <label class="active">Phone Number</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <input
+                type="password"
+                name="Password"
+                required
+                #Password="ngModel"
+                minlength="8"
+                ngModel
+              />
+              <span
+                *ngIf="Password.invalid && Password.touched"
+                style="color: red"
+                >Please Enter a valid Password</span
+              >
+              <label class="active">Password</label>
+            </div>
+            <div class="input-field col s6">
+              <input
+                type="password"
+                name="ConfirmPassword"
+                required
+                #ConfirmPassword="ngModel"
+                minlength="8"
+                ngModel
+              />
+              <span
+                *ngIf="ConfirmPassword.invalid && ConfirmPassword.touched"
+                style="color: red"
+                >Please Re-Enter the same Password</span
+              >
+              <label class="active">Confirm Password</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <input
+                type="text"
+                name="Email"
+                required
+                #Email="ngModel"
+                pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                ngModel
+              />
+              <span *ngIf="Email.invalid && Email.touched" style="color: red"
+                >Please Enter a valid Email</span
+              >
+              <label class="active">Email</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <button
+                class="btn-large btn-submit"
+                [disabled]="RegistrationForm.invalid"
+                type="submit"
+              >
+                Register
+              </button>
+            </div>
+            <span
+              >Already registered?<a routerLink="/login"> Login here</a></span
+            >
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
