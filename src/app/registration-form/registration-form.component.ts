@@ -11,9 +11,7 @@ export class RegistrationFormComponent implements OnInit {
   RegisterUser(item:any){
     console.warn(item);
   }
-  ngOnInit(): void {
-    
-  }
-  
+  ngOnInit(): void { 
+  } 
 }
    
